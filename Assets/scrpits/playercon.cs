@@ -81,7 +81,12 @@ public class playercon : MonoBehaviour
        }
 
        isOnGround = Physics2D.OverlapCircle(groundcheck.position, checkRadius, allGround); // ground check
-
+        if (count == 4)
+        {
+            lives = 3;
+            SetlivesText();
+        }
+        
         if (hozMovement == 0 && isOnGround) //plays idle animation when doing nothing and is on ground
         {
             anim.SetInteger("State",0);
