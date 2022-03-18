@@ -47,6 +47,8 @@ public class playercon : MonoBehaviour
          if (count == 4)
         {
             transform.position = new Vector2(44.0f, -4.4f);
+             lives = 3;
+            SetlivesText();
         }
         else if (count >= 8)
         {
@@ -81,11 +83,7 @@ public class playercon : MonoBehaviour
        }
 
        isOnGround = Physics2D.OverlapCircle(groundcheck.position, checkRadius, allGround); // ground check
-        if (count == 4)
-        {
-            lives = 3;
-            SetlivesText();
-        }
+
         
         if (hozMovement == 0 && isOnGround) //plays idle animation when doing nothing and is on ground
         {
