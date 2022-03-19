@@ -664,4 +664,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/alber/Documents/DIG 3480/for builds/challenge 2.exe
+  playerPath: C:/Users/alber/Documents/DIG 3480/temp/challenge 2.exe

@@ -23,7 +23,7 @@ public class playercon : MonoBehaviour
      public float jumpForce;
      private int count;
     private int lives;
-    
+    private int level = 1;
      Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -44,9 +44,9 @@ public class playercon : MonoBehaviour
      void SetCountText() //the set count text this also teleports
     {
         countText.text = "Count: " + count.ToString();
-         if (count == 4)
+         if (count == 4 && level == 1)
         {
-            transform.position = new Vector2(44.0f, -4.4f);
+            teleport();
              lives = 3;
             SetlivesText();
         }
@@ -57,6 +57,11 @@ public class playercon : MonoBehaviour
         musicSource.loop = false;
             WinTextObject.SetActive(true);
         }
+    }
+    void teleport()
+    {
+        transform.position = new Vector2(44.0f, -4.4f);
+        level = 2;
     }
      void SetlivesText() //the lives text, might need to change this so then the death animation can play
     {
