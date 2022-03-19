@@ -44,13 +44,7 @@ public class playercon : MonoBehaviour
      void SetCountText() //the set count text this also teleports
     {
         countText.text = "Count: " + count.ToString();
-         if (count == 4 && level == 1)
-        {
-            teleport();
-             lives = 3;
-            SetlivesText();
-        }
-        else if (count >= 8)
+         if (count >= 8)
         {
              musicSource.clip = musicClipTwo;
         musicSource.Play();
@@ -66,11 +60,6 @@ public class playercon : MonoBehaviour
      void SetlivesText() //the lives text, might need to change this so then the death animation can play
     {
         livesText.text = "lives: " + lives.ToString();
-        if (lives == 0)
-        {   
-            LoseTextObject.SetActive(true);
-            Destroy(gameObject);
-        }
     }
     // Update is called once per frame
     
@@ -88,7 +77,17 @@ public class playercon : MonoBehaviour
        }
 
        isOnGround = Physics2D.OverlapCircle(groundcheck.position, checkRadius, allGround); // ground check
-
+ if (count == 4 && level == 1)// if the count hits 4 it teleports and lives resets to 3
+        {
+            teleport();
+             lives = 3;
+            SetlivesText();
+        }
+        if (lives == 0) // if lives is 0 you lose
+        {   
+            LoseTextObject.SetActive(true);
+            Destroy(gameObject);
+        }
         
         if (hozMovement == 0 && isOnGround) //plays idle animation when doing nothing and is on ground
         {
